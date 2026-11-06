@@ -8,6 +8,6 @@ public class MainActivity extends BridgeActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         registerPlugin(SecureKeyPlugin.class);
-        super.onCreate(savedInstanceState);
+super.onCreate(savedInstanceState);
     }
 }

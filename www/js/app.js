@@ -68,3 +68,40 @@ function newChat() {
 }
 
 document.getElementById('newChat').addEventListener('click', newChat);
+
+// ==================================
+// OmniChat Secure API Storage Bridge
+// ==================================
+
+const SecureKey = window.Capacitor?.Plugins?.SecureKey;
+
+async function saveApiKey(provider, apiKey) {
+  if (!SecureKey) {
+    throw new Error("Secure storage plugin is unavailable.");
+  }
+
+  const result = await SecureKey.saveKey({
+    provider,
+    apiKey
+  });
+
+  return result.success;
+}
+
+async function getApiKey(provider) {
+  if (!SecureKey) {
+    throw new Error("Secure storage plugin is unavailable.");
+  }
+
+  const result = await SecureKey.getKey({ provider });
+  return result.apiKey;
+}
+
+async function deleteApiKey(provider) {
+  if (!SecureKey) {
+    throw new Error("Secure storage plugin is unavailable.");
+  }
+
+  const result = await SecureKey.deleteKey({ provider });
+  return result.success;
+}
