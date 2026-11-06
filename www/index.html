@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b12">
+  <title>OmniChat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">✳</div>
+        <span>Omni<span class="accent">Chat</span></span>
+      </div>
+      <button class="icon-btn" id="newChat" title="New chat">＋</button>
+    </header>
+
+    <main id="mainContent">
+      <section id="chatPage" class="page active">
+        <div class="model-row">
+          <span class="online-dot"></span>
+          <select id="modelSelect">
+            <option value="Select a model">Select a model</option>
+            <option value="Gemini">Gemini</option>
+            <option value="Groq">Groq</option>
+            <option value="OpenRouter">OpenRouter</option>
+            <option value="Custom API">Custom API</option>
+          </select>
+          <span class="model-arrow">⌄</span>
+        </div>
+
+        <div class="welcome" id="welcome">
+          <div class="orb">✳</div>
+          <p class="eyebrow">YOUR AI WORKSPACE</p>
+          <h1>One chat.<br><span>Infinite possibilities.</span></h1>
+          <p class="subtitle">Connect your favorite AI models and bring every conversation together.</p>
+
+          <div class="suggestions">
+            <button class="suggestion" data-prompt="Help me write a professional email">✉ <span>Write an email</span></button>
+            <button class="suggestion" data-prompt="Help me understand a programming concept">⌘ <span>Learn coding</span></button>
+            <button class="suggestion" data-prompt="Give me creative ideas for a new project">✧ <span>Brainstorm ideas</span></button>
+            <button class="suggestion" data-prompt="Explain a difficult topic step by step">◈ <span>Explain something</span></button>
+          </div>
+        </div>
+
+        <div id="messages" class="messages"></div>
+
+        <div class="composer-wrap">
+          <div class="composer">
+            <textarea id="messageInput" rows="1" placeholder="Ask anything..."></textarea>
+            <div class="composer-bottom">
+              <span class="composer-hint">✳ OmniChat</span>
+              <button id="sendBtn" class="send-btn" aria-label="Send message">↑</button>
+            </div>
+          </div>
+          <p class="disclaimer">AI responses may be inaccurate. Verify important information.</p>
+        </div>
+      </section>
+
+      <section id="modelsPage" class="page other-page">
+        <p class="eyebrow">YOUR CONNECTIONS</p>
+        <h2>AI Models</h2>
+        <p class="subtitle">Manage your AI providers in one place.</p>
+        <div class="provider-card">
+          <div class="provider-icon">G</div>
+          <div><b>Google Gemini</b><small>API connection</small></div>
+          <span class="provider-status">Not connected</span>
+        </div>
+        <div class="provider-card">
+          <div class="provider-icon">G</div>
+          <div><b>Groq</b><small>API connection</small></div>
+          <span class="provider-status">Not connected</span>
+        </div>
+        <div class="provider-card">
+          <div class="provider-icon">O</div>
+          <div><b>OpenRouter</b><small>API connection</small></div>
+          <span class="provider-status">Not connected</span>
+        </div>
+        <div class="provider-card">
+          <div class="provider-icon">+</div>
+          <div><b>Custom provider</b><small>OpenAI-compatible API</small></div>
+          <span class="provider-status">Available</span>
+        </div>
+        <p class="note">API connection management will be implemented in the next phase.</p>
+      </section>
+
+      <section id="historyPage" class="page other-page">
+        <p class="eyebrow">YOUR ACTIVITY</p>
+        <h2>Chat History</h2>
+        <p class="subtitle">Your conversations will appear here.</p>
+        <div id="historyList"></div>
+      </section>
+
+      <section id="settingsPage" class="page other-page">
+        <p class="eyebrow">PERSONALIZATION</p>
+        <h2>Settings</h2>
+        <div class="setting-card">
+          <b>Appearance</b>
+          <p>Dark interface</p>
+        </div>
+        <div class="setting-card">
+          <b>Privacy & Security</b>
+          <p>API key protection and local data</p>
+        </div>
+        <div class="setting-card">
+          <b>About OmniChat</b>
+          <p>Version 1.0.0 · Android</p>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item selected" data-page="chatPage">
+        <span>✳</span><small>Chat</small>
+      </button>
+      <button class="nav-item" data-page="modelsPage">
+        <span>◈</span><small>Models</small>
+      </button>
+      <button class="nav-item" data-page="historyPage">
+        <span>◷</span><small>History</small>
+      </button>
+      <button class="nav-item" data-page="settingsPage">
+        <span>⚙</span><small>Settings</small>
+      </button>
+    </nav>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
